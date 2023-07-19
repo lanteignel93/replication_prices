@@ -75,7 +75,6 @@ class Simulation:
         market_dynamics: MarketDynamics,
         stocks_dynamics: StockDynamics,
         hedge_vol: HedgeType,
-        seed: float,
     ) -> pd.DataFrame:
         """
         Compute the PnL of the hedged portfolio Simulation

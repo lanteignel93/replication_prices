@@ -56,7 +56,7 @@ class StockDynamics:
 
 class GeometricBrownianMotion(StockDynamics):
     def __init__(
-        self, parameters: GeometricBrownianMotionParameters, seed: float = 0
+        self, parameters: GeometricBrownianMotionParameters, seed: float = None
     ) -> None:
         super().__init__(parameters, seed)
         self._parameters = parameters
@@ -76,7 +76,8 @@ class GeometricBrownianMotion(StockDynamics):
         """
         # Time step size
         dt = self._option.days_to_maturity / (252 * self._num_steps)
-        np.random.seed(seed=self._seed + 1234)
+        if self._seed is not None:
+          np.random.seed(seed=self._seed + 1234)
         #
         random_path = np.random.normal(0, np.sqrt(dt), size=self._num_steps)
 
