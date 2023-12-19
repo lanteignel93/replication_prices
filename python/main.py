@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt 
+import numpy as np
 from dynamics import *
 from instrument import *
 from simulation import *

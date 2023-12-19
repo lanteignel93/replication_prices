@@ -1,11 +1,15 @@
 import numpy as np
 import pandas as pd
 from dataclasses import dataclass
-from instrument import EquityOption
 from abc import abstractmethod
 from typing import Tuple
 from enum import Enum
-from instrument import EquityOption, OptionType, ExerciseType
+from instrument import (
+    EquityOption, 
+    OptionType,
+    ExerciseType
+)
+
 
 
 class StockDynamicsType(Enum):
@@ -77,7 +81,7 @@ class GeometricBrownianMotion(StockDynamics):
         # Time step size
         dt = self._option.days_to_maturity / (252 * self._num_steps)
         if self._seed is not None:
-          np.random.seed(seed=self._seed + 1234)
+            np.random.seed(seed=self._seed + 1234)
         #
         random_path = np.random.normal(0, np.sqrt(dt), size=self._num_steps)
 
@@ -219,5 +223,3 @@ if __name__ == "__main__":
     stock_dynamics = GeometricBrownianMotion(parameters=geo_parameters, seed=0)
 
     S2, Z2 = stock_dynamics.generate_stock_path()
-
-    print("chill")

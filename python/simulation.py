@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from enum import Enum
 import numpy as np
 import pandas as pd
 import scipy as sp

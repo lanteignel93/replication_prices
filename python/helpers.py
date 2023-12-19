@@ -1,7 +1,6 @@
 from dataclasses import dataclass, fields
 from pathlib import Path
-
-from dynamics import StockDynamics, StockDynamicsType, JumpDiffusionProcess, GeometricBrownianMotion
+import json
 
 
 def dataclass_from_json(dataclass: dataclass, json_path: str | Path):
@@ -28,9 +27,3 @@ class DataClassUnpack:
         fieldSet = cls.classFieldCache[dataclass]
         filteredArgDict = {k: v for k, v in data.items() if k in fieldSet}
         return dataclass(**filteredArgDict)
-
-
-def get_stock_dynamcis(
-    
-):
-    pass
